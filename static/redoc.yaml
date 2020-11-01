@@ -28,7 +28,7 @@ servers:
 tags:
   - name: REVIEWS
     description: Отзывы
-  - name: COMMENTS
+  - name: Comment
     description: Комментарии к отзывам
   - name: AUTH
     description: Аутентификация
@@ -195,7 +195,7 @@ paths:
       - jwt_auth:
         - write:user,moderator,admin
 
-  /titles/{title_id}/reviews/{review_id}/comments/:
+  /titles/{title_id}/reviews/{review_id}/Comment/:
     parameters:
       - name: title_id
         in: path
@@ -211,7 +211,7 @@ paths:
           type: number
     get:
       tags:
-        - COMMENTS
+        - Comment
       description: |
         Получить список всех комментариев к отзыву по id
 
@@ -240,7 +240,7 @@ paths:
           description: Не найден объект оценки или отзыв
     post:
       tags:
-        - COMMENTS
+        - Comment
       description: |
         Создать новый комментарий для отзыва.
 
@@ -271,7 +271,7 @@ paths:
       - jwt_auth:
         - write:user,moderator,admin
 
-  /titles/{title_id}/reviews/{review_id}/comments/{comment_id}/:
+  /titles/{title_id}/reviews/{review_id}/Comment/{comment_id}/:
     parameters:
       - name: title_id
         in: path
@@ -293,7 +293,7 @@ paths:
           type: number
     get:
       tags:
-        - COMMENTS
+        - Comment
       description: |
         Получить комментарий для отзыва по id.
 
@@ -309,7 +309,7 @@ paths:
           description: Не найден объект оценки, отзыв или комментарий
     patch:
       tags:
-        - COMMENTS
+        - Comment
       description: |
         Частично обновить комментарий к отзыву по id.
 
@@ -343,7 +343,7 @@ paths:
         - write:user,moderator,admin
     delete:
       tags:
-        - COMMENTS
+        - Comment
       description: |
         Удалить комментарий к отзыву по id.
 
